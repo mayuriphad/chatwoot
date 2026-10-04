@@ -3,7 +3,7 @@ class Platform::Api::V1::AccountsController < PlatformController
     @resources = @platform_app.platform_app_permissibles
                               .where(permissible_type: 'Account')
                               .includes(:permissible)
-                              .filter_map(&:permissible)
+                              .map(&:permissible)
   end
 
   def show; end
